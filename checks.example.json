@@ -1,0 +1,48 @@
+{
+  "base_url": "http://127.0.0.1:8797",
+  "timeout_seconds": 2,
+  "checks": [
+    {
+      "name": "health endpoint returns ok",
+      "method": "GET",
+      "path": "/health",
+      "expect_status": 200,
+      "expect_json": {
+        "status": "ok"
+      },
+      "expect_json_paths": {
+        "meta.version": "2026.04"
+      },
+      "max_ms": 300
+    },
+    {
+      "name": "orders endpoint has expected first order",
+      "method": "GET",
+      "path": "/api/orders",
+      "expect_status": 200,
+      "expect_json_paths": {
+        "data.0.id": "ord_1001",
+        "data.0.status": "paid"
+      },
+      "max_ms": 300
+    },
+    {
+      "name": "private endpoint stays protected",
+      "method": "GET",
+      "path": "/private",
+      "expect_status": 401,
+      "expect_body_contains": "missing token",
+      "max_ms": 300
+    },
+    {
+      "name": "intentional failing check for report sample",
+      "method": "GET",
+      "path": "/api/orders",
+      "expect_status": 200,
+      "expect_json_paths": {
+        "data.0.status": "refunded"
+      },
+      "max_ms": 300
+    }
+  ]
+}
