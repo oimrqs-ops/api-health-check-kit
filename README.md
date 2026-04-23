@@ -83,3 +83,11 @@ Optional fields per check:
 ## Boundary
 
 This is for endpoints the client owns, controls, or is authorized to test. It is not a scanner, load tester, credential harvester, CAPTCHA bypass, or hidden API probe. Do not commit tokens or production secrets into check plans; use environment variables for sensitive header values.
+
+## OIMRQS Ops Context
+
+This repo is part of the OIMRQS Ops public proof shelf: focused programming and technical-ops work across web, internal tools, automations, data cleanup, dashboards, APIs, webhooks, QA and handoff.
+
+- Site: https://oimrqs-ops.x9kqz.uk/
+- Portfolio: https://oimrqs-ops.x9kqz.uk/portfolio/
+- Proof library: https://oimrqs-ops.x9kqz.uk/proof/
